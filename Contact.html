@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heng's Map</title>
+    <link rel="Icon" href="HengPic.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #fff;
+            overflow-x: hidden;
+            color: #333; 
+            line-height: 1.8;
+        }
+
+        .top-bar {
+            background-color: #474747;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 8%;
+            font-size: 14px;
+        }
+
+        .top-right a {
+            color: #fff;
+            margin-left: 15px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+        .top-right a:hover {
+            color: #ad343e;
+        }
+
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background-color: #fff;
+            border-bottom: 1px solid #f0f0f0;
+            box-shadow: 0px 0px 20px 1px black;
+            position: sticky;
+            z-index: 1000;
+            top: 0;
+        }
+
+        .logo-text {
+            font-size: 26px;
+            font-weight: 700;
+            font-family: 'Georgia', serif;
+            color: #2c2c2c;
+            font-style: italic;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap; 
+            gap: 5px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4f4f4f;
+            margin: 0 5px;
+            padding: 5px 10px;
+            font-weight: 500;
+            font-size: 15px;
+            border-radius: 20px;
+            transition: 0.3s;
+            font-family: 'Khmer OS Battambang', sans-serif;
+        }
+
+        .nav-links a.active, .nav-links a:hover {
+            background-color: #dbdfd0;
+            color: #2c2c2c;
+        }
+
+        .btn-outline-black {
+            text-decoration: none;
+            color: #2c2c2c;
+            border: 1.5px solid #2c2c2c;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-outline-black:hover {
+            background-color: #2c2c2c;
+            color: #fff;
+        }
+
+        .btn-back {
+            display: inline-block;
+            background-color: #2c2c2c;
+            color: white;
+            text-decoration: none;
+            padding: 10px 24px;
+            border-radius: 25px;
+            font-family: 'Khmer OS Battambang', sans-serif;
+            font-size: 14px;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+        .btn-back:hover {
+            background-color: #ad343e;
+        }
+        .contact-container{
+            max-width: 1200px;
+            margin: 50px auto;
+        }
+
+        .contact-container h1{
+            text-align: center;
+            margin-bottom: 40px;
+            color: #ad343e;
+            font-family: Khmer OS Muol Light;
+        }
+
+        .contact-card,
+        .teacher-card{
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 0 20px rgba(0,0,0,.15);
+            transition: .4s;
+        }
+
+        .teacher-card:hover{
+            transform: translateY(-10px);
+            box-shadow: 0px 0px 50px 10px blue;
+            transition: 1s;
+        }
+
+        .profile-image img,
+        .teacher-image img{
+            width: 250px;
+            height: 250px;
+            border-radius: 20px;
+            object-fit: cover;
+        }
+
+        .profile-info,
+        .teacher-info{
+            flex: 1;
+        }
+
+        .profile-info h2,
+        .teacher-info h2{
+            color: #ad343e;
+            margin-bottom: 20px;
+        }
+
+        .profile-info p,
+        .teacher-info p{
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .contact-card:hover{
+            transform: translateY(-10px);
+            box-shadow: 0px 0px 50px 10px rgb(255, 0, 0);
+            transition: 1s;
+        }
+
+        @media(max-width:768px){
+
+            .contact-card,
+            .teacher-card{
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-image img,
+            .teacher-image img{
+                width: 200px;
+                height: 200px;
+            }
+
+        }
+        @keyframes moveRight{
+                0%{
+                    transform: translateX(-100%);
+                }
+                100%{
+                    transform: translateX(100vw);
+                }
+            }   
+        .moving-text span{
+                display: inline-block;
+                font-size: 30px;
+                color: rgb(0, 0, 0);
+                animation: moveRight 20s linear infinite;
+                position: relative;
+                font-weight: 200px;
+            }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="top-left">
+            <center>
+                <span style="font-family: Khmer OS Moul Light;"> នេះជាគេហទំព័ររបស់ទំនាក់ទំនង</span>
+            </center>
+        </div>
+        <div class="top-right">
+            <a href="https://www.tiktok.com/@hengg899?_r=1&_t=ZS-97JXvV6D60O" target="_blank" title="Tiktok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://www.facebook.com/KimLiheng.77" target="_blank" title="facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/lihengkim?igsh=MTlzbnJmNTVnemtvZw%3D%3D&utm_source=qr" title="Instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://t.me/HENG77777" target="_blank" title="telegram"><i class="fa-brands fa-telegram"></i></a>
+        </div>
+    </div>
+    <h1 align="center" class="moving-text" style="color: #000000;background-color: #ffee00;"><span style="font-family: Khmer OS Moul Light;font-size: 20px;">ព័ត៍មានលម្អិតរបស់ខ្ញុំដែលជាអ្នកបង្កើតគេហទំព័រនេះឡើង</span></h1>
+    <header class="navbar">
+        <nav class="nav-links">
+            <a href="Kpt.html">កំពង់ធំ</a>
+            <a href="SR.html">សៀមរាប</a>
+            <a href="Btb.html">បាត់ដំបង</a>
+            <a href="Porsat.html">ពោធិ័សាត់</a>
+            <a href="btmc.html">បន្ទាយមានជ័យ</a>
+            <a href="ordormc.html">ឧត្តរមានជ័យ</a>
+            <a href="kpchn.html">កំពង់ឆ្នាំង</a>
+            <a href="pailin.html">ប៉ៃលិន</a>
+            <a href="keb.html">កែប</a>
+            <a href="kohkong.html">កោះកុង</a>
+            <a href="PP.html">ទីក្រុងភ្នំពេញ</a>
+            <a href="sihaknuk.html">ព្រះសីហនុ</a>
+            <a href="Kpc.html">កំពង់ចាម</a>
+            <a href="preahvihear.html">ព្រះវិហារ</a>
+            <a href="krojes.html">ក្រចេះ</a>
+            <a href="kompot.html">កំពត</a>
+            <a href="preyveng.html">ព្រៃវែង</a>
+            <a href="steungtreng.html">ស្ទឹងត្រែង</a>
+            <a href="kondal.html">កណ្តាល</a>
+            <a href="kompungspue.html">កំពង់ស្ពឺ</a>
+            <a href="Rotanakiri.html">រតនៈគិរី</a>
+            <a href="mondulkiri.html">មណ្ឌលគិរី</a>
+            <a href="Takeo.html">តាកែវ</a>
+            <a href="svayrirng.html">ស្វាយរៀង</a>
+            <a href="tbongkhmum.html">ត្បូងឃ្មុំ</a>
+        </nav>
+        <a href="#" class="btn-outline-black">Contact</a>
+    </header>
+<section class="contact-container">
+    <center>
+        <img src="SETEC LOGO PNG.png" alt="" width="400px"><br>
+    </center>
+    <div class="contact-card">
+        <div class="profile-image">
+            <img src="MyImage.jpg">
+        </div>
+        <div class="profile-info">
+            <h2 style="font-family: 'Khmer OS Battambang';">ព័ត៌មានរបស់ខ្ញុំ</h2>
+            <p strong style="font-family: 'Khmer OS Battambang';"><strong style="font-family: 'Khmer OS Battambang';">ឈ្មោះ :</strong> គីម លីហេង</p>
+            <p style="font-family: 'Khmer OS Battambang';"><strong style="font-family: 'Khmer OS Battambang';">ក្រុម :</strong> SX11 / ឆ្នាំទី១</p>
+            <p style="font-family: 'Khmer OS Battambang';"><strong style="font-family: 'Khmer OS Battambang';">ជំនាន់ :</strong> ជំនាន់ទី24</p>
+            <p><strong style="font-family: 'Khmer OS Battambang';">មុខវិជ្ជា :</strong> Web Development I</p>
+            <p><strong style="font-family: 'Khmer OS Battambang';">កិច្ចការ :</strong> Cambodia Map's Website</p>
+            <p><strong style="font-family: 'Khmer OS Battambang';">ឆ្នាំសិក្សា :</strong> ២០២៥ - ២០២៦</p>
+        </div>
+    </div>
+    <div class="teacher-card">
+        <div class="teacher-image">
+            <img src="Teacher.jpg" alt="Teacher Photo">
+        </div>
+        <div class="teacher-info">
+            <h2 style="font-family: 'Khmer OS Battambang';">​បង្រៀនដោយលោកគ្រូ</h2>
+             <p style="font-family: 'Khmer OS Battambang';"><strong style="font-family: 'Khmer OS Battambang';">ឈ្មោះ :</strong> រី វិសាន</p>
+            <p style="font-family: 'Khmer OS Battambang';">
+                លោកគ្រូគឺជាអ្នកបង្រៀនមុខវិជ្ជា
+                Web Development I
+                និងបានផ្តល់ការណែនាំក្នុងការធ្វើprojectមួយនេះ។
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+<Footer align="center">
+    <hr><br>
+      <span>
+        <span style="color: rgb(0, 0, 0);">Cambodian</span>
+         All Country in Cambodia 25 country and have 1 city</span>
+         <br><br>
+      <span><span style="color: rgb(0, 0, 0);">Legal</span> Privacy Policy Terms of Service Contact Us</span>
+      <div style="font-size: 30px;">
+      <i class="fa-brands fa-facebook"></i>
+      <i class="fa-brands fa-telegram"></i>
+      <i class="fa-brands fa-tiktok"></i>
+      </div>
+      <p style="margin-bottom: 30px;">@2026 KimLiheng — All rights reserved.</p>
+</Footer>
+</body>
+</html>

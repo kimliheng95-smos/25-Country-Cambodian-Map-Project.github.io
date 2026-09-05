@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heng's Map</title>
+    <link rel="Icon" href="HengPic.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-image: url(https://apsaraauthority.gov.kh/wp-content/uploads/2024/06/1-32.jpg);
+    background-size: cover;      
+    background-position: center;   
+    background-repeat: no-repeat;  
+    background-attachment: fixed;
+}
+html{
+    height: 100%;
+}
+.top-bar {
+    background-color: #474747;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 8%;
+    font-size: 14px;
+}
+
+
+.top-right a {
+    color: #fff;
+    margin-left: 15px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+.top-right a:hover {
+    color: #ad343e;
+}
+.navbar {
+    display: flex;
+    background-color: #1f2937;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    box-shadow: 0px 0px 20px 1px black;
+    position: sticky;
+    z-index: 1000;
+    top: 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo-icon {
+    font-size: 24px;
+}
+
+.logo-text {
+    font-size: 26px;
+    font-weight: 700;
+    font-family: 'Georgia', serif;
+    color: #2c2c2c;
+    font-style: italic;
+}
+
+.nav-links a {
+            text-decoration: none;
+            color: #ffffff;
+            margin: 0 5px;
+            padding: 5px 10px;
+            font-weight: 500;
+            font-size: 15px;
+            border-radius: 20px;
+            transition: 0.3s;
+            font-family: 'Khmer OS Battambang', sans-serif;
+}
+
+.nav-links a.active, .nav-links a:hover {
+    background-color: #dbdfd0;
+    color: #2c2c2c;
+}
+
+.btn-outline-black {
+    text-decoration: none;
+    color: #2c2c2c;
+    border: 1.5px solid #2c2c2c;
+    padding: 10px 24px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-outline-black:hover {
+    background-color: #2c2c2c;
+    color: #fff;
+}
+
+
+ .right button{
+    margin-bottom: 20px;
+      padding: 5px 15px;
+      border: none;
+      border: 2px solid #000;
+      color: rgb(0, 0, 0);
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+     @keyframes appear{
+            from{
+                opacity: 0.9;
+                scale: 0.5;
+            }
+            to{
+                opacity: 1;
+                scale: 1;
+            }
+        }
+        .right{
+            animation: appear linear;
+            animation-timeline: view();
+            animation-range: entry 0;
+        }
+.Card-bottom{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} 
+.Khet h1{
+    text-align: center;
+    font-family: Khmer OS Moul Light;
+    font-size: 60px;
+}
+.right{
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 12px;
+    border-radius: 16px;
+    width: 300px;
+    height: 250px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    transition: 0.5s;
+}
+
+.right img {
+    width: 100%;
+    height:130px;
+    object-fit: contain;
+    border-radius: 8px;
+    transition: 0.5s;
+    overflow: hidden;
+}
+.right img:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+.right button:hover{
+    background-color: rgb(0, 0, 235);
+    color: rgb(255, 255, 255);
+}
+.right button a:hover{
+    color: rgb(255, 255, 255);
+}
+.right h3{
+    color: #ffffff;
+}
+
+.right:hover {
+    transform: translateY(-20px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    border: 2px solid;
+    transition: 0.5s;
+}
+.card-kampongthom .right:hover{
+    transform: translateY(-20px);
+    box-shadow: 0 0px 50px 5px rgb(157, 15, 193);
+    transition: 0.5s;
+}
+.card-siemriep .right:hover{
+    transform: translateY(-20px);
+    box-shadow: 0 0px 50px 5px rgb(15, 193, 86);
+    transition: 0.5s;
+}
+.card-Pailen .right:hover{
+    transform: translateY(-20px);
+    box-shadow: 0 0px 50px 5px rgb(76, 1, 251);
+    transition: 0.5s;
+}
+.card-Battdambong .right:hover{
+    transform: translateY(-20px);
+    box-shadow: 0 0px 50px 5px rgb(8, 152, 219);
+    transition: 0.5s;
+}
+.card-sihaknuk .right:hover{
+    transform: translateY(-20px);
+    box-shadow: 0 0px 50px 5px rgb(183, 222, 9);
+    transition: 1s;
+}
+.card-vihear .right:hover{
+    transform: translateY(-20px);
+    box-shadow: 0 0px 50px 5px rgb(31, 96, 41);
+    transition: 0.5s;
+}
+.card-kompot .right:hover{
+    transform: translateY(-20px);
+    box-shadow: 0 0px 50px 5px rgb(255, 5, 176);
+    transition: 0.5s;
+}
+.card-kohkong .right:hover{
+    transform: translateY(-20px);
+    box-shadow: 0 0px 50px 5px rgb(66, 15, 50);
+    transition: 0.5s;
+}
+.card-kompungcham .right:hover{
+    transform: translateY(-20px);
+    box-shadow: 0 0px 50px 5px rgb(0, 55, 63);
+    transition: 0.5s;
+}
+.card-preyveng .right:hover{
+    transform: translateY(-20px);
+    box-shadow: 0 0px 50px 5px rgb(56, 252, 69);
+    transition: 0.5s;
+}
+.card-posat .right:hover{
+    transform: translateY(-20px);
+    box-shadow: 0 0px 50px 5px rgb(95, 56, 252);
+    transition: 0.5s;
+}
+.card-keb .right:hover{
+    transform: translateY(-20px);
+    box-shadow: 0 0px 50px 5px rgb(0, 213, 255);
+    transition: 0.5s;
+}
+.card-poypet .right:hover{
+    transform: translateY(-20px);
+    box-shadow: 0 0px 50px 5px rgb(112, 1, 118);
+    transition: 0.5s;
+}
+.card-kompungchnang .right:hover{
+    transform: translateY(-20px);
+    box-shadow: 0 0px 50px 5px rgb(194, 116, 198);
+    transition: 0.5s;
+}
+.card-bonteaymeanchey .right:hover{
+    transform: translateY(-20px);
+    box-shadow: 0 0px 50px 5px rgb(109, 92, 223);
+    transition: 0.5s;
+}
+.card-oudormeanchey .right:hover{
+    transform: translateY(-20px);
+    box-shadow: 0 0px 50px 5px rgb(130, 249, 255);
+    transition: 0.5s;
+}
+.card-rotanakiri .right:hover{
+    transform: translateY(-20px);
+    box-shadow: 0 0px 50px 5px rgb(5, 223, 194);
+    transition: 0.5s;
+}
+.card-mondulkiri .right:hover{
+    transform: translateY(-20px);
+    box-shadow: 0 0px 50px 5px rgb(2, 249, 125);
+    transition: 0.5s;
+}
+.card-kompungsom .right:hover{
+    transform: translateY(-20px);
+    box-shadow: 0 0px 50px 5px rgb(138, 249, 2);
+    transition: 0.5s;
+}
+.card-tbongkhmum .right:hover{
+    transform: translateY(-20px);
+    box-shadow: 0 0px 50px 5px rgb(220, 249, 2);
+    transition: 0.5s;
+}
+.card-kompongspue .right:hover{
+    transform: translateY(-20px);
+    box-shadow: 0 0px 50px 5px rgb(249, 158, 2);
+    transition: 0.5s;
+}
+.card-takao .right:hover{
+    transform: translateY(-20px);
+    box-shadow: 0 0px 50px 5px rgb(249, 109, 2);
+    transition: 0.5s;
+}
+.card-stoengtreng .right:hover{
+    transform: translateY(-20px);
+    box-shadow: 0 0px 50px 5px rgb(249, 68, 2);
+    transition: 0.5s;
+}
+.card-kondal .right:hover{
+    transform: translateY(-20px);
+    box-shadow: 0 0px 50px 5px rgb(125, 2, 249);
+    transition: 0.5s;
+}
+.card-krojes .right:hover{
+    transform: translateY(-20px);
+    box-shadow: 0 0px 50px 5px rgb(216, 2, 249);
+    transition: 0.5s;
+}
+.card-kohkong .right:hover{
+    transform: translateY(-20px);
+    box-shadow: 0 0px 50px 5px rgb(249, 2, 2);
+    transition: 0.5s;
+}
+.card-vihear .right:hover{
+    transform: translateY(-20px);
+    box-shadow: 0 0px 50px 5px rgb(243, 159, 216);
+    transition: 0.5s;
+}
+.card-sihaknuk .right:hover{
+    transform: translateY(-20px);
+    box-shadow: 0 0px 50px 5px rgb(209, 84, 109);
+    transition: 0.5s;
+}
+.card-kompungcham .right:hover{
+    transform: translateY(-20px);
+    box-shadow: 0 0px 50px 5px rgb(62, 3, 88);
+    transition: 0.5s;
+}
+.card-svayreing .right:hover{
+    transform: translateY(-20px);
+    box-shadow: 0 0px 50px 5px rgba(51, 190, 30, 0.836);
+    transition: 0.5s;
+}
+.card-pp .right:hover{
+    transform: translateY(-20px);
+    box-shadow: 0 0px 50px 5px rgb(255, 0, 0);
+    transition: 0.5s;
+}
+.moving-text span{
+        display: inline-block;
+        font-size: 30px;
+        color: rgb(0, 0, 0);
+        animation: moveRight 10s linear infinite;
+        position: relative;
+        font-weight: 200px;
+    }
+.Div3{
+      font-size: 30px;
+    }
+    
+    @keyframes moveRight{
+        0%{
+            transform: translateX(-100%);
+        }
+        100%{
+            transform: translateX(100vw);
+        }
+    }
+.moving-text{
+    position: sticky;
+    z-index: 1000;
+    top: 0;
+    overflow-x: hidden;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    gap: 45px;
+    margin-bottom: 30px;
+}
+     html{
+            scroll-behavior: smooth ;
+        }
+footer{
+    background: #1f2937;
+    color: white;
+    padding: 50px 8%;
+    margin-top: 50px;
+}
+
+.footer-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    align-items: center;
+}
+
+.footer-card{
+    text-align: center;
+    background: rgba(255,255,255,0.05);
+    padding: 25px;
+    border-radius: 15px;
+    transition: 0.4s;
+}
+
+.footer-card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 0 25px rgba(255,255,255,0.15);
+}
+
+.footer-card img{
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #fbbf24;
+    margin-bottom: 15px;
+}
+
+.footer-card h3{
+    color: #fbbf24;
+    margin-bottom: 10px;
+    font-family: "Khmer OS Battambang";
+}
+
+.footer-card p{
+    font-family: "Khmer OS Battambang";
+    margin: 5px 0;
+}
+
+.footer-center{
+    text-align: center;
+}
+
+.footer-center img{
+    width: 260px;
+    max-width: 100%;
+}
+
+.footer-center h2{
+    color: #fbbf24;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.footer-center p{
+    color: #d1d5db;
+    font-size: 15px;
+}
+
+.footer-bottom{
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    text-align: center;
+}
+
+.footer-bottom p{
+    color: #d1d5db;
+    font-size: 14px;
+}
+
+@media(max-width:900px){
+    .footer-container{
+        grid-template-columns: 1fr;
+    }
+
+    .footer-center{
+        order: -1;
+    }
+}
+.MapImg img{
+    height: auto;
+    display: block;
+    border-radius: 15px;
+}
+    </style>
+</head>
+<body>
+    <div class="sticky-header">
+        <div class="top-bar">
+        <div class="top-left">
+            <center>
+                <span style="font-family: Khmer OS Moul Light;"> នេះជាទំព័រដើមនៃផែនទីប្រទេសកម្ពុជា</span>
+            </center>
+        </div>
+        <div class="top-right">
+            <a href="https://www.tiktok.com/@hengg899?_r=1&_t=ZS-97JXvV6D60O" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://www.facebook.com/KimLiheng.77/?_rdc=2&_rdr#" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/lihengkim?igsh=MTlzbnJmNTVnemtvZw%3D%3D&utm_source=qr" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://t.me/HENG77777" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+        </div>
+    </div>
+    </div>
+    <h1 align="center" class="moving-text" style="color: #ffffff;background-color: #000000;"><span style="font-family: Khmer OS Moul Light;font-size: 20px;color: #ffffff;">នេះជាផែនទីផ្លូវការរបស់ប្រទេសកម្ពុជា ជាតិ សាសនា​ ព្រះមហាក្សត្រ</span></h1>
+    <header class="navbar">
+        <nav class="nav-links">
+            <a href="Kpt.html">កំពង់ធំ</a>
+            <a href="SR.html">សៀមរាប</a>
+            <a href="Btb.html">បាត់ដំបង</a>
+            <a href="Porsat.html">ពោធិ័សាត់</a>
+            <a href="btmc.html">បន្ទាយមានជ័យ</a>
+            <a href="ordormc.html">ឧត្តរមានជ័យ</a>
+            <a href="kpchn.html">កំពង់ឆ្នាំង</a>
+            <a href="pailin.html">ប៉ៃលិន</a>
+            <a href="keb.html">កែប</a>
+            <a href="kohkong.html">កោះកុង</a>
+            <a href="PP.html">ទីក្រុងភ្នំពេញ</a>
+            <a href="sihaknuk.html">ព្រះសីហនុ</a>
+            <a href="Kpc.html">កំពង់ចាម</a>
+            <a href="preahvihear.html">ព្រះវិហារ</a>
+            <a href="krojes.html">ក្រចេះ</a>
+            <a href="kompot.html">កំពត</a>
+            <a href="preyveng.html">ព្រៃវែង</a>
+            <a href="steungtreng.html">ស្ទឹងត្រែង</a>
+            <a href="kondal.html">កណ្តាល</a>
+            <a href="kompungspue.html">កំពង់ស្ពឺ</a>
+            <a href="Rotanakiri.html">រតនៈគិរី</a>
+            <a href="mondulkiri.html">មណ្ឌលគិរី</a>
+            <a href="Takeo.html">តាកែវ</a>
+            <a href="svayrirng.html">ស្វាយរៀង</a>
+            <a href="tbongkhmum.html">ត្បូងឃ្មុំ</a>
+        </nav>
+        <img src="HengPic.png" alt="" width="60">
+    </header>
+    <center>
+        <div class="MapImg">
+            <img src="Map.png" usemap="#image-map"> 
+        </div>
+            <map name="image-map">
+            <area target="" alt="kompot" title="kompot" href="kompot.html" coords="538,516,538,534,517,541,520,565,523,573,519,583,537,589,546,588,559,586,571,586,578,588,583,594,585,604,599,601,603,593,615,590,620,582,617,569,621,560,615,549,597,549,598,537,585,528,578,520,560,528,551,526,548,521,543,519,548,521" shape="poly">
+            <area target="" alt="kep" title="kep" href="keb.html" coords="563,584,565,599,574,597,583,602,581,593,575,588" shape="poly">
+            <area target="" alt="takeo" title="takeo" href="Takeo.html" coords="582,521,585,529,593,530,598,538,598,548,615,549,622,555,619,567,621,583,622,590,643,593,653,579,672,571,667,561,663,548,664,543,659,536,661,519,654,509,648,496,622,497,617,528,595,523,592,523" shape="poly">
+            <area target="" alt="kondal" title="kondal" href="kondal.html" coords="664,546,673,541,674,547,673,541,683,547,686,524,690,515,695,504,690,500,690,491,696,486,687,479,677,474,673,461,678,456,678,450,665,448,665,438,659,433,655,455,653,467,663,475,662,497" shape="poly">
+            <area target="" alt="phnom penh" title="phnom penh" href="PP.html" coords="651,469,652,451,643,458,636,451,625,458,622,470,628,477,626,482,633,484,635,478,642,477,648,479,652,479,660,478" shape="poly">
+            <area target="" alt="kondal" title="kondal" href="" coords="659,433,646,443,639,437,634,432,628,439,621,451,617,468,615,485,628,486,630,488,625,495,635,495,645,495,652,499,656,511,661,516,660,532,663,540,662,524,662,504,660,493,660,485,651,480,642,479,630,486,625,478,620,468,626,455,636,449,643,455,652,450,655,452" shape="poly">
+            <area target="" alt="kompungspeu" title="kompungspeu" href="kompungspue.html" coords="626,439,609,443,597,451,586,448,576,446,569,438,566,431,561,426,558,418,552,409,550,415,539,415,535,423,534,428,526,429,520,425,516,431,511,436,499,437,499,444,498,452,502,463,512,469,519,475,526,474,532,478,535,481,535,492,533,501,531,512,535,516,547,519,552,525,561,527,572,521,582,519,592,522,594,523,602,524,617,527,621,496,629,488,612,486,618,458" shape="poly">
+            <area target="" alt="siheaknuk" title="siheaknuk" href="sihaknuk.html" coords="516,540,517,555,516,564,522,575,516,583,513,578,507,579,505,585,498,592,498,602,491,597,481,595,469,597,476,593,473,587,468,592,467,584,458,581,465,574,467,569,481,567,484,559,495,552,500,546,499,535,505,528,512,519,508,510,516,501,524,491,531,486,533,494,531,511,534,520,535,531,528,532,535,531" shape="poly">
+            <area target="" alt="kohkong" title="kohkong" href="kohkong.html" coords="498,437,505,435,494,427,487,425,480,421,473,414,461,406,453,408,446,406,444,414,438,419,429,421,420,423,412,425,385,417,368,417,377,438,384,447,385,461,392,475,395,482,390,496,397,505,399,496,400,483,407,491,411,493,415,497,403,507,410,519,406,529,409,538,408,545,416,553,426,545,438,547,445,550,450,548,447,539,453,525,460,515,467,515,472,519,476,525,481,527,485,540,488,555,499,547,498,534,510,519,506,509,528,487,534,482,521,477,500,463,497,447" shape="poly">
+            <area target="" alt="Pursat" title="Pursat" href="Porsat.html" coords="368,370,358,376,358,386,356,398,365,408,365,415,388,416,410,423,436,419,446,406,458,405,471,410,486,422,497,428,507,436,514,431,517,424,525,427,534,427,539,414,552,414,551,401,550,393,557,382,569,379,575,367,577,358,567,353,556,350,547,342,543,335,540,327,529,324,517,320,511,316,504,311,497,306,495,299,488,314,480,319,479,328,481,336,480,346,474,356,464,358,450,354,441,353,427,356,413,363,404,366,397,360,384,367,377,372" shape="poly">
+            <area target="" alt="Batdambong" title="Batdambong" href="Btb.html" coords="312,241,311,265,321,286,331,297,336,300,341,296,341,287,354,286,363,293,364,304,365,315,365,329,352,337,341,340,354,352,368,371,378,371,393,360,404,365,434,352,465,357,477,354,480,338,477,321,489,309,493,298,484,271,473,265,452,257,418,252,385,255,364,251,355,254,355,242" shape="poly">
+            <area target="" alt="pailin" title="pailin" href="pailin.html" coords="329,302,340,300,343,288,354,287,362,294,363,309,364,328,348,337,334,339,330,331,336,324,331,317" shape="poly">
+            <area target="" alt="Banteay Mean Chey" title="Banteay Mean Chey" href="btmc.html" coords="313,229,310,235,315,241,355,241,356,253,364,250,389,254,415,251,427,251,441,254,451,255,447,250,450,241,449,224,453,216,450,208,453,203,452,198,454,191,446,189,441,179,434,187,425,189,419,182,423,177,420,174,424,169,411,167,406,159,401,153,392,157,388,166,385,178,368,189,363,207,339,218,345,227,328,233" shape="poly">
+            <area target="" alt="Oddar Meanchey" title="Oddar Meanchey" href="ordormc.html" coords="401,151,412,167,424,168,423,176,421,182,428,186,436,182,441,177,447,189,456,190,469,192,478,185,542,184,554,188,558,189,565,185,584,186,583,176,593,164,587,157,589,140,575,138,566,133,558,139,552,135,551,140,541,138,534,141,521,139,514,142,507,139,494,138,488,130,480,132,469,132,459,139,453,136,433,141,421,141,411,145" shape="poly">
+            <area target="" alt="Siem Reap" title="Siem Reap" href="SR.html" coords="455,191,453,197,452,210,453,217,451,225,451,239,450,250,455,257,468,259,477,265,488,267,510,272,531,279,541,292,547,309,552,317,555,325,564,315,574,311,582,303,587,298,589,289,590,279,599,274,602,266,602,255,609,247,617,238,608,240,582,234,583,221,583,213,575,203,583,189,569,187,558,190,541,185,481,187,470,193,455,191" shape="poly">
+            <area target="" alt="kompungthom" title="kompungthom" href="Kpt.html" coords="602,271,625,263,645,264,643,278,652,292,660,292,676,283,687,271,698,267,707,257,730,248,732,269,737,273,739,283,743,288,742,295,743,302,745,306,746,313,749,317,748,325,751,335,752,344,756,359,731,360,726,366,712,360,706,378,695,371,683,371,677,375,680,383,686,394,674,392,668,390,652,387,643,390,641,384,647,376,639,365,637,356,628,354,617,347,606,344,599,347,593,350,590,343,590,328,580,328,563,332,556,327,566,314,576,313,587,302,591,281" shape="poly">
+            <area target="" alt="Preah Vihear" title="Preah Vihear" href="preahvihear.html" coords="589,140,589,157,595,165,585,178,577,204,585,217,583,234,599,236,617,239,604,257,604,269,625,262,646,262,645,281,655,292,669,284,682,274,700,262,705,257,730,246,733,222,725,205,733,194,743,196,752,195,750,189,777,190,759,178,760,170,754,174,743,168,735,163,719,171,708,170,700,162,691,155,683,140,680,148,676,158,662,154,658,147,656,140,648,136,636,130,610,132,603,140" shape="poly">
+            <area target="" alt="Stung Treng" title="Stung Treng" href="steungtreng.html" coords="886,130,872,128,865,121,859,110,852,119,845,127,833,129,822,123,821,135,813,140,802,138,791,139,794,149,804,161,815,175,806,183,803,192,752,190,749,198,733,197,729,207,734,224,732,248,734,269,755,277,769,286,785,279,796,267,801,256,820,256,829,250,845,250,862,258,870,260,871,252,860,234,859,224,862,217,874,213,876,204,871,192,869,182,882,180,894,173,887,162" shape="poly">
+            <area target="" alt="Ratanakiri" title="Ratanakiri" href="Rotanakiri.html" coords="993,99,981,108,977,116,968,116,964,111,956,115,953,123,945,123,941,132,931,133,925,128,920,138,916,143,907,142,899,146,888,134,888,161,893,171,889,179,871,182,875,198,878,208,872,216,860,221,863,234,871,251,871,259,893,274,911,277,930,277,931,262,941,259,948,260,954,253,962,262,967,258,972,264,982,259,991,262,1001,262,1001,247,1001,236,994,220,988,210,978,205,983,195,979,181,968,179,968,168,965,167,972,155,972,142,981,130,985,133" shape="poly">
+            <area target="" alt="Mondulkiri" title="Mondulkiri" href="mondulkiri.html" coords="998,263,982,260,971,267,965,263,954,255,949,260,941,262,932,262,932,273,930,279,897,277,869,262,852,256,840,251,836,260,837,269,847,277,861,286,847,279,836,280,835,286,844,294,858,301,871,310,869,319,856,326,844,337,838,355,863,370,870,381,891,388,897,408,920,408,938,392,951,379,967,376,978,387,994,373,998,354,995,340,993,323,986,311,985,302" shape="poly">
+            <area target="" alt="Kratie" title="Kratie" href="krojes.html" coords="847,277,836,268,836,253,827,253,819,258,802,258,793,273,772,288,748,276,738,274,745,288,747,306,750,321,754,343,763,375,756,386,768,386,772,392,789,393,798,399,798,406,815,412,816,424,837,422,842,422,854,419,869,421,880,420,890,416,895,406,892,396,890,388,871,381,863,371,856,367,838,356,844,335,854,325,869,318,868,309,844,295,834,288,834,280" shape="poly">
+            <area target="" alt="Tbong Khmum" title="Tbong Khmum" href="tbongkhmum.html" coords="844,421,829,424,815,425,812,415,801,410,793,397,781,393,770,394,767,389,749,386,739,382,731,389,732,400,735,402,732,411,724,418,720,430,714,441,717,446,751,450,765,464,775,456,785,462,793,449,796,443,808,449,819,449,828,452,831,456,841,453,851,458,845,444,850,438,852,432" shape="poly">
+            <area target="" alt="Kampung Cham" title="Kampung Cham" href="Kpc.html" coords="755,360,760,374,755,384,745,382,738,382,731,388,730,400,732,409,721,421,714,437,703,432,693,439,678,449,667,447,668,437,661,432,652,434,646,441,637,432,639,423,645,419,645,411,645,403,647,396,645,390,653,388,664,391,687,397,683,384,679,375,686,371,696,373,707,380,713,364,728,367,732,362" shape="poly">
+            <area target="" alt="Kampung Chnang" title="Kampung Chnang" href="kpchn.html" coords="578,369,572,378,561,384,556,386,551,394,554,407,560,418,566,429,577,445,587,446,598,450,611,440,628,437,635,428,644,418,644,405,644,394,638,384,645,375,638,368,635,356,620,352,611,347,601,347,594,351,584,355,580,359" shape="poly">
+            <area target="" alt="Prey Veng" title="Prey Veng" href="preyveng.html" coords="711,437,702,435,693,442,681,449,676,462,678,473,687,477,696,485,693,494,695,503,694,515,687,529,685,548,695,549,704,554,712,546,715,540,722,540,733,540,740,538,738,525,731,521,732,512,739,512,743,503,746,491,747,478,750,469,759,468,764,465,754,454,750,451,717,447" shape="poly">
+            <area target="" alt="Svay Rieng" title="Svay Rieng" href="svayrirng.html" coords="817,561,803,559,785,546,782,554,772,552,773,546,761,533,738,540,741,538,739,524,731,520,733,512,738,515,743,506,746,493,750,471,765,468,775,472,774,482,777,484,774,491,774,503,780,503,782,511,787,512,794,514,807,515,813,515,816,528,820,540,810,538,811,548,817,554" shape="poly">
+            <area target="" alt="Tonle Sab" title="Tonle Sab" href="" coords="481,267,495,298,506,312,521,320,535,325,543,325,547,337,550,343,558,349,569,351,578,357,591,351,585,345,589,343,587,333,583,329,572,331,563,333,554,328,549,314,538,290,530,279,503,272,491,269" shape="poly">
+        </map>
+    </center>
+    <div class=" Khet">
+            <h1 style="color: #ffe600;">២៥ <span style="font-family: Khmer OS Moul Light;color: #ffffff;">ខេត្ត-ក្រុង</span></h1>
+        </div>
+    <center>
+        <hr width="1400px">
+    </center><br><br>
+    <div class="container">
+        <div class="bg-img card-siemriep">
+            <div class="right">
+                <img src="https://s9.kh1.co/86/86c209c5ac09f2ef8b1784f20eb42e785d1a8ad5.jpeg">
+                <h3 style="font-family: Khmer OS Battambang;">ខេត្តសៀមរាប</h3>
+                <button style="font-family: Khmer OS Battambang;"><a href="SR.html" style="font-family: Khmer OS Battambang;text-decoration: none;color: #000000;">ចុចមើល</a></button>
+            </div>
+        </div>
+        <div class="bg-img card-kompot">
+            <div class="right">
+                <img src="https://s9.kh1.co/0c/0c147e5b0e9519c8ebd600954790b6425f6a5640.jpeg">
+                <h3 style="font-family: Khmer OS Battambang;">ខេត្តកំពត</h3>
+                <button style="font-family: Khmer OS Battambang;"><a href="kompot.html" style="font-family: Khmer OS Battambang;text-decoration: none;color: #000;">ចុចមើល</a></button>
+            </div>
+        </div>
+        <div class="bg-img card-preyveng">
+            <div class="right">
+                <img src="https://s9.kh1.co/26/26c6b3669e851c46578502ebbbee683f29da7935.jpeg">
+                <h3 style="font-family: Khmer OS Battambang;">ខេត្តព្រៃវែង</h3>
+                <button style="font-family: Khmer OS Battambang;"><a href="preyveng.html" style="font-family: Khmer OS Battambang;text-decoration: none;color: #000;">ចុចមើល</a></button>
+            </div>
+        </div>
+        <div class="bg-img card-Pailen">
+            <div class="right">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC36uHgj2NdNmmv2Vs0NhSNY69iZSi30CTdh6VruuXUZZn_4W8ReiLnGA&s=10">
+                <h3 style="font-family: Khmer OS Battambang;">ខេត្តប៉ៃលិន</h3>
+                <button style="font-family: Khmer OS Battambang;"><a href="pailin.html" style="font-family: Khmer OS Battambang;text-decoration: none;color: #000;">ចុចមើល</a></button>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="bg-img card-Battdambong">
+            <div class="right">
+                <img src="https://srpchandeth.wordpress.com/wp-content/uploads/2011/12/d1.jpg?w=640">
+                <h3 style="font-family: Khmer OS Battambang;">ខេត្តបាត់ដំបង</h3>
+                <button style="font-family: Khmer OS Battambang;">ចុចមើល</button>
+            </div>
+        </div>
+        <div class="bg-img card-posat">
+            <div class="right">
+                <img src="https://s9.kh1.co/af/afc83cbc2cadb8858ef532f5f0c6514ea8fef9f9.jpeg">
+                <h3 style="font-family: Khmer OS Battambang;">ខេត្តពៅធិ័សាត់</h3>
+                <button style="font-family: Khmer OS Battambang;"><a href="Porsat.html" style="font-family: Khmer OS Battambang;text-decoration: none;color: #000;">ចុចមើល</a></button>
+            </div>
+        </div>
+        <div class="bg-img card-keb">
+            <div class="right">
+                <img src="https://s9.kh1.co/c0/c0ce130a0156a93966a9f07b7a8a7d48128fbf8a.jpeg">
+                <h3 style="font-family: Khmer OS Battambang;">ខេត្តកែប</h3>
+                <button style="font-family: Khmer OS Battambang;"><a href="keb.html" style="font-family: Khmer OS Battambang;text-decoration: none;color: #000;">ចុចមើល</a></button>
+            </div>
+        </div>
+
+
+        <div class="bg-img card-kompungchnang">
+            <div class="right">
+                <img src="https://scontent.fpnh10-1.fna.fbcdn.net/v/t1.6435-9/110013424_144140127336069_7472141854481986998_n.jpg?stp=dst-jpg_tt6&cstp=mx1000x1000&ctp=s1000x1000&_nc_cat=111&ccb=1-7&_nc_sid=f727a1&_nc_eui2=AeHEncWiAQsvfb3gJHGY6aKyH7RcP_E-MJgftFw_8T4wmInp2Tcf8OIhEEqnX5vZu2p2XeYMklhefjL7GqGi9H1z&_nc_ohc=3iKH3uv_A08Q7kNvwGYxWBm&_nc_oc=AdprOeokVRyWPRoppo-EH86e1f-aK00tExEmLEPwPsPh8K7mQTC55K69iKYNIeUT0Cc&_nc_zt=23&_nc_ht=scontent.fpnh10-1.fna&_nc_gid=naxknsAsWXamcAjj5mzpSQ&_nc_ss=7b2a8&oh=00_Af9IlG6hYFPnVkFCas_g6b5QTCCdLGgXwHKcyDeDRKc2Pg&oe=6A5AE565">
+                <h3 style="font-family: Khmer OS Battambang;">ខេត្តកំពង់ឆ្នាំង</h3>
+                <button style="font-family: Khmer OS Battambang;"><a href="kpchn.html" style="font-family: Khmer OS Battambang;text-decoration: none;color: #000;">ចុចមើល</a></button>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="bg-img card-bonteaymeanchey">
+            <div class="right">
+                <img src="https://s9.kh1.co/1d/1d0166dc228f42e5ec383fb51a4815194112b532.jpeg">
+                <h3 style="font-family: Khmer OS Battambang;">បន្ទាយមានជ័យ</h3>
+                <button style="font-family: Khmer OS Battambang;"><a href="btmc.html" style="font-family: Khmer OS Battambang;text-decoration: none;color: #000;">ចុចមើល</a></button>
+            </div>
+        </div>
+        <div class="bg-img card-oudormeanchey">
+            <div class="right">
+                <img src="https://cdn.cc-times.com/kh.cc-times.com/images/7209/large/64803540_2359398370963762_5730428280666849280_n.jpeg?1623686013">
+                <h3 style="font-family: Khmer OS Battambang;">ខេត្តឧត្តរមានជ័យ</h3>
+                <button style="font-family: Khmer OS Battambang;"><a href="ordormc.html" style="font-family: Khmer OS Battambang;text-decoration: none;color: #000;">ចុចមើល</a></button>
+            </div>
+        </div>
+        <div class="bg-img card-rotanakiri">
+            <div class="right">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0DY9JG6ynrytI-fFDySHIwoSXn-NLoeTRifLiQNpVIFBMCctuMyPhif8&s=10">
+                <h3 style="font-family: Khmer OS Battambang;">ខេត្តរតនៈគិរី</h3>
+                <button style="font-family: Khmer OS Battambang;"><a href="Rotanakiri.html" style="font-family: Khmer OS Battambang;text-decoration: none;color: #000;">ចុចមើល</a></button>
+            </div>
+        </div>
+        <div class="bg-img card-mondulkiri">
+            <div class="right">
+                <img src="https://s9.kh1.co/3b/3b7bbffddb112bbea035a2b0ce1d5bde07ec647a.jpeg">
+                <h3 style="font-family: Khmer OS Battambang;">ខេត្តមណ្ឌលគិរី</h3>
+                <button style="font-family: Khmer OS Battambang;"><a href="mondulkiri.html" style="font-family: Khmer OS Battambang;text-decoration: none;color: #000;">ចុចមើល</a></button>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="bg-img card-kompungsom">
+            <div class="right">
+                <img src="https://lh5.googleusercontent.com/proxy/YhBcatpkSE-0KejByFHDD2eWF2dD05irmo0zcVsj3xTQB2sPqCPiv8bIpw4oLkZ3PhBBHuYWNDsLzaZFd2iglILOgQ9FYWgBpwaYEde0VifRx80r6jwi6gNVA6SuIGqWjZPT27kyQFPZcNFzC_TQ">
+                <h3 style="font-family: Khmer OS Battambang;">ខេត្តកំពង់ធំ</h3>
+                <button style="font-family: Khmer OS Battambang;"><a href="Kpt.html" style="font-family: Khmer OS Battambang;text-decoration: none;color: #000;">ចុចមើល</a></button>
+            </div>
+        </div>
+        <div class="bg-img card-tbongkhmum">
+            <div class="right">
+                <img src="https://s9.kh1.co/bc/bc2439c8a91cbbf097509c48deac6fe8901d61d7.jpeg">
+                <h3 style="font-family: Khmer OS Battambang;">ខេត្តត្បូងឃ្មុំ</h3>
+                <button style="font-family: Khmer OS Battambang;"><a href="tbongkhmum.html" style="font-family: Khmer OS Battambang;text-decoration: none;color: #000;">ចុចមើល</a></button>
+            </div>
+        </div>
+        <div class="bg-img card-kompongspue">
+            <div class="right">
+                <img src="https://s9.kh1.co/e2/e2200c0429128f69c92719c01393211b4173fd7e.jpeg">
+                <h3 style="font-family: Khmer OS Battambang;">ខេត្តកំពង់ស្ពឺ</h3>
+                <button style="font-family: Khmer OS Battambang;"><a href="" style="font-family: Khmer OS Battambang;text-decoration: none;color: #000;">ចុចមើល</a></button>
+            </div>
+        </div>
+        <div class="bg-img card-takao">
+            <div class="right">
+                <img src="https://s9.kh1.co/ad/ad03dcd60e546dffd0446c3d2d9cf6f3fe6e30a8.jpeg">
+                <h3 style="font-family: Khmer OS Battambang;">ខេត្តតាកែវ</h3>
+                <button style="font-family: Khmer OS Battambang;"><a href="Takeo.html" style="font-family: Khmer OS Battambang;text-decoration: none;color: #000;">ចុចមើល</a></button>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="bg-img card-stoengtreng">
+            <div class="right">
+                <img src="https://s9.kh1.co/1b/1bf2f48d27f653e6b82f6041279ff1080da01c68.jpeg">
+                <h3 style="font-family: Khmer OS Battambang;">ខេត្តស្ទឹងត្រែង</h3>
+                <button style="font-family: Khmer OS Battambang;"><a href="steungtreng.html" style="font-family: Khmer OS Battambang;text-decoration: none;color: #000;">ចុចមើល</a></button>
+            </div>
+        </div>
+        <div class="bg-img card-kondal">
+            <div class="right">
+                <img src="https://s9.kh1.co/f4/f4da5c77ced9df819c7a4b0d23ddb63c6044852b.jpeg">
+                <h3 style="font-family: Khmer OS Battambang;">ខេត្តកណ្តាល</h3>
+                <button style="font-family: Khmer OS Battambang;"><a href="kondal.html" style="font-family: Khmer OS Battambang;text-decoration: none;color: #000;">ចុចមើល</a></button>
+            </div>
+            </div>
+        <div class="bg-img card-krojes">
+            <div class="right">
+                <img src="https://s9.kh1.co/45/453c75e584038c44cdd0acc7a563ec30a9e19d36.jpeg">
+                <h3 style="font-family: Khmer OS Battambang;">ខេត្តក្រចេះ</h3>
+                <button style="font-family: Khmer OS Battambang;"><a href="krojes.html" style="font-family: Khmer OS Battambang;text-decoration: none;color: #000;">ចុចមើល</a></button>
+            </div>
+        </div>
+        <div class="bg-img card-kohkong">
+            <div class="right">
+                <img src="https://s9.kh1.co/08/080aaa7cbce817af3bc2a06e9c1b40d28674d298.jpeg">
+                <h3 style="font-family: Khmer OS Battambang;">ខេត្តកោះកុង</h3>
+                <button style="font-family: Khmer OS Battambang;"><a href="kohkong.html" style="font-family: Khmer OS Battambang;text-decoration: none;color: #000;">ចុចមើល</a></button>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="bg-img card-vihear">
+            <div class="right">
+                <img src="https://s9.kh1.co/99/99af5dc99130bba047d2d301c8c6e2faf12a8e6f.jpeg">
+                <h3 style="font-family: Khmer OS Battambang;">ខេត្តព្រះវិហារ</h3>
+                <button style="font-family: Khmer OS Battambang;"><a href="preahvihear.html" style="font-family: Khmer OS Battambang;text-decoration: none;color: #000;">ចុចមើល</a></button>
+            </div>
+        </div>
+        <div class="bg-img card-sihaknuk">
+            <div class="right">
+                <img src="https://s9.kh1.co/27/27e81ebd74705fe68027cc60b8c6e8e2966ad967.jpg">
+                <h3 style="font-family: Khmer OS Battambang;">ខេត្តព្រះសីហនុ</h3>
+                <button style="font-family: Khmer OS Battambang;"><a href="sihaknuk.html" style="font-family: Khmer OS Battambang;text-decoration: none;color: #000;">ចុចមើល</a></button>
+            </div>
+        </div>
+        <div class="bg-img card-kompungcham">
+            <div class="right">
+                <img src="https://s9.kh1.co/a8/a8dc572122adea266e7ce3ceebc544f6384b2dfc.jpeg">
+                <h3 style="font-family: Khmer OS Battambang;">ខេត្តកំពង់ចាម</h3>
+                <button style="font-family: Khmer OS Battambang;"><a href="Kpc.html" style="font-family: Khmer OS Battambang;text-decoration: none;color: #000;">ចុចមើល</a></button>
+            </div>
+        </div>
+        <div class="bg-img card-svayreing">
+            <div class="right">
+                <img src="https://s9.kh1.co/fe/fe00853fc32d094c4b3a555f98e22dad20ba327c.jpeg">
+                <h3 style="font-family: Khmer OS Battambang;">ខេត្តស្វាយរៀង</h3>
+                <button style="font-family: Khmer OS Battambang;">ចុចមើល</button>
+            </div>
+        </div>
+    </div> 
+    <div class="container">
+        <div class="bg-img card-pp" style="margin-right: 1040px;">
+            <div class="right">
+                <img src="https://s9.kh1.co/21/21f74a76f9cb98d72fcd1c492c81acf1327773ad.jpeg">
+                <h3 style="font-family: Khmer OS Battambang;">រាជធានីភ្នំពេញ</h3>
+                <button style="font-family: Khmer OS Battambang;"><a href="PP.html" style="font-family: Khmer OS Battambang;text-decoration: none;color: #000;">ចុចមើល</a></button>
+            </div>
+        </div>
+    </div>
+    <br><br><br><br><br><br>
+        </center>
+    </section><hr>
+    <footer>
+    <div class="footer-container">
+        <div class="footer-card">
+            <img src="MyImage.jpg" alt="Kim Liheng">
+            <h3>គីម លីហេង</h3>
+            <p>និស្សិត SETEC</p>
+            <p>ក្រុម SX11</p>
+            <p>ជំនាន់ទី 24</p>
+            <p>មុខវិជ្ជា៖ Web Developer I</p>
+        </div>
+        <div class="footer-center">
+            <img src="SETEC LOGO PNG.png" alt="SETEC Logo">
+            <h2>SETEC Institute</h2>
+            <p>
+                School of Engineering and Technology
+            </p>
+            <p>
+                Project: Interactive Cambodia Province Map
+            </p>
+            <p>
+                Academic Year 2026
+            </p>
+        </div>
+        <div class="footer-card">
+            <img src="Teacher.jpg" alt="Teacher">
+            <h3>លោកគ្រូ រី វិសាន</h3>
+            <p>សាស្ត្រាចារ្យ</p>
+            <p>Web Developer I</p>
+            <p>Project Supervisor</p>
+            <p>SETEC Institute</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>
+            © 2026 Heng's Map | Developed by Kim Liheng
+        </p>
+    </div>
+</body>
+</html>

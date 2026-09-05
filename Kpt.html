@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heng's Map</title>
+    <link rel="Icon" href="HengPic.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-image: url(https://apsaraauthority.gov.kh/wp-content/uploads/2024/06/1-32.jpg);
+            background-size: cover;       
+            background-position: center;  
+            background-repeat: no-repeat;  
+            background-attachment: fixed;
+        }
+
+        .top-bar {
+            background-color: #474747;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 8%;
+            font-size: 14px;
+        }
+
+        .top-right a {
+            color: #fff;
+            margin-left: 15px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+        .top-right a:hover {
+            color: #ad343e;
+        }
+
+        .logo-text {
+            font-size: 26px;
+            font-weight: 700;
+            font-family: 'Georgia', serif;
+            color: #2c2c2c;
+            font-style: italic;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap; 
+            gap: 5px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #ffffff;
+            margin: 0 5px;
+            padding: 5px 10px;
+            font-weight: 500;
+            font-size: 15px;
+            border-radius: 20px;
+            transition: 0.3s;
+            font-family: 'Khmer OS Battambang', sans-serif;
+        }
+
+        .nav-links a.active, .nav-links a:hover {
+            background-color: #dbdfd0;
+            color: #2c2c2c;
+        }
+
+        .main-container {
+            height: auto;
+            margin: 40px auto;
+            padding: 0 8%;
+        }
+
+        .province-banner {
+            width: auto;
+            height: 500px;
+            border-radius: 40px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            position: relative;
+            background-color: #ad343e;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .province-banner img {
+            width: 100%;
+            object-fit: fill;
+        }
+
+        .province-title-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            padding: 20px;
+            color: rgb(255, 255, 255);
+        }
+
+        .province-title-overlay h2 {
+            font-family: 'Khmer OS Muol Light', sans-serif;
+            font-size: 70px;
+        }
+
+        .info-card {
+            width: 100%;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            border-left: 5px solid #ff0000;
+            height: auto;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.25);
+        }
+
+        .info-card h3 {
+            font-family: 'Khmer OS Muol Light', sans-serif;
+            color: #febb00;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .info-card p {
+            font-family: 'Khmer OS Battambang', sans-serif;
+            font-size: 15px;
+            color: #ffffff;
+            text-align: justify;
+        }
+
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .gallery-item {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid #eee;
+            transition: 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            transition: 0.5s;
+            box-shadow: 0px 0px 30px 2px rgba(30, 0, 255, 0.703);
+        }
+
+        .gallery-item .img-box {
+            width: 100%;
+            height: 180px;
+            background-color: #e0e0e0; 
+        }
+
+        .gallery-item .img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+        .gallery-item .img-box img:hover {
+            transform: scale(1.1);
+            transition: 0.5s;
+        }
+
+        .gallery-item p {
+            padding: 15px;
+            text-align: center;
+            font-family: 'Khmer OS Battambang', sans-serif;
+            font-weight: bold;
+            font-size: 15px;
+            color: #2c2c2c;
+            background-color: #fafafa;
+        }
+
+
+        .btn-back {
+            display: inline-block;
+            background-color: #000000;
+            color: white;
+            text-decoration: none;
+            padding: 10px 24px;
+            border-radius: 25px;
+            font-family: 'Khmer OS Battambang', sans-serif;
+            font-size: 14px;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+        .btn-back:hover {
+            background-color: #ad343e;
+        }
+        .Div3{
+            font-size: 30px;
+        }
+        html{
+            scroll-behavior: smooth;
+        }
+footer{
+    background: #1f2937;
+    color: white;
+    padding: 50px 8%;
+    margin-top: 50px;
+}
+
+.footer-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    align-items: center;
+}
+
+.footer-card{
+    text-align: center;
+    background: rgba(255,255,255,0.05);
+    padding: 25px;
+    border-radius: 15px;
+    transition: 0.4s;
+}
+
+.footer-card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 0 25px rgba(255,255,255,0.15);
+}
+
+.footer-card img{
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #fbbf24;
+    margin-bottom: 15px;
+}
+
+.footer-card h3{
+    color: #fbbf24;
+    margin-bottom: 10px;
+    font-family: "Khmer OS Battambang";
+}
+
+.footer-card p{
+    font-family: "Khmer OS Battambang";
+    margin: 5px 0;
+}
+
+.footer-center{
+    text-align: center;
+}
+
+.footer-center img{
+    width: 260px;
+    max-width: 100%;
+}
+
+.footer-center h2{
+    color: #fbbf24;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.footer-center p{
+    color: #d1d5db;
+    font-size: 15px;
+}
+
+.footer-bottom{
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    text-align: center;
+}
+
+.footer-bottom p{
+    color: #d1d5db;
+    font-size: 14px;
+}
+
+@media(max-width:900px){
+    .footer-container{
+        grid-template-columns: 1fr;
+    }
+
+    .footer-center{
+        order: -1;
+    }
+}
+.MapImg{
+    display: inline-block;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.25);
+    width: 1300px;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.25);
+    margin-top: 10px;
+}
+.MapImg img{
+    height: auto;
+    display: block;
+    border-radius: 15px;
+}
+.navbar {
+            display: flex;
+            background-color: #1f2937;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            box-shadow: 0px 0px 20px 1px black;
+            position: sticky;
+            z-index: 1000;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar" id="top-bar">
+        <div class="top-left">
+            <center>
+                <span style="font-family: Khmer OS Moul Light;"> នេះជាគេហទំព័ររបស់ខេត្តកំពង់ធំ
+                </span>
+            </center>
+        </div>
+        <div class="top-right">
+            <a href="https://www.tiktok.com/@hengg899?_r=1&_t=ZS-97JXvV6D60O" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://www.facebook.com/KimLiheng.77/?_rdc=2&_rdr#" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/lihengkim?igsh=MTlzbnJmNTVnemtvZw%3D%3D&utm_source=qr" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://t.me/HENG77777" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+        </div>
+    </div>
+
+    <header class="navbar">
+        <nav class="nav-links">
+            <a href="Kpt.html" class="active">កំពង់ធំ</a>
+            <a href="SR.html">សៀមរាប</a>
+            <a href="Btb.html">បាត់ដំបង</a>
+            <a href="Porsat.html">ពោធិ័សាត់</a>
+            <a href="btmc.html">បន្ទាយមានជ័យ</a>
+            <a href="ordormc.html">ឧត្តរមានជ័យ</a>
+            <a href="kpchn.html">កំពង់ឆ្នាំង</a>
+            <a href="pailin.html">ប៉ៃលិន</a>
+            <a href="keb.html">កែប</a>
+            <a href="kohkong.html">កោះកុង</a>
+            <a href="PP.html">ទីក្រុងភ្នំពេញ</a>
+            <a href="sihaknuk.html">ព្រះសីហនុ</a>
+            <a href="Kpc.html">កំពង់ចាម</a>
+            <a href="preahvihear.html">ព្រះវិហារ</a>
+            <a href="krojes.html">ក្រចេះ</a>
+            <a href="kompot.html">កំពត</a>
+            <a href="preyveng.html">ព្រៃវែង</a>
+            <a href="steungtreng.html">ស្ទឹងត្រែង</a>
+            <a href="kondal.html">កណ្តាល</a>
+            <a href="kompungspue.html">កំពង់ស្ពឺ</a>
+            <a href="Rotanakiri.html">រតនៈគិរី</a>
+            <a href="mondulkiri.html">មណ្ឌលគិរី</a>
+            <a href="Takeo.html">តាកែវ</a>
+            <a href="svayrirng.html">ស្វាយរៀង</a>
+            <a href="tbongkhmum.html">ត្បូងឃ្មុំ</a>
+        </nav>
+        <img src="HengPic.png" alt="" width="60">
+    </header>
+
+    <div class="main-container">
+        
+        <a href="index.html" class="btn-back"><i class="fa-solid fa-arrow-left"></i> ត្រឡប់ទៅផែនទីវិញ</a>
+
+        <div class="province-banner">
+            <img src="https://kohsantepheapdaily.com.kh/wp-content/uploads/2025/06/e60d1bf5be8c82beac38e849dbbc6b58-1.jpg">
+            <div class="province-title-overlay">
+                <h2>ខេត្តកំពង់ធំ</h2>
+            </div>
+        </div>
+
+        <div class="info-card">
+            <h3>ទិដ្ឋភាពទូទៅ (Overview)</h3>
+            <p>ខេត្តកំពង់ធំ គឺជាខេត្តមួយដែលមានផ្ទៃដីធំជាងគេលំដាប់ទី២ ស្ថិតនៅចំកណ្តាលនៃប្រទេសកម្ពុជា។ ខេត្តនេះមានព្រំប្រទល់ជាប់នឹងបឹងទន្លេសាប និងមានសក្តានុពលខ្លាំងលើវិស័យកសិកម្ម នេសាទ និងទេសចរណ៍វប្បធម៌-ប្រវត្តិសាស្ត្រ។ ទីរួមខេត្តគឺ ក្រុងស្ទឹងសែន។</p>
+        </div>
+
+        <div class="info-card">
+            <h3>លក្ខណៈពិសេស និងតំបន់ទេសចរណ៍ល្បីៗ</h3>
+            <p>អ្វីដែលជាចំណុចពិសេសបំផុតរបស់ខេត្តកំពង់ធំ គឺការបន្សល់ទុកនូវកេរដំណែលប្រវត្តិសាស្ត្រតាំងពីសម័យមុនអង្គរ និងសម័យអង្គរ រួមជាមួយនឹងរមណីយដ្ឋានវប្បធម៌ និងធម្មជាតិដ៏សម្បូរបែប៖</p>
+            
+            <div class="gallery-grid">
+                
+                <div class="gallery-item">
+                    <div class="img-box">
+                        <a href="https://km.wikipedia.org/wiki/%E1%9E%94%E1%9F%92%E1%9E%9A%E1%9E%B6%E1%9E%9F%E1%9E%B6%E1%9E%91%E1%9E%9F%E1%9E%98%E1%9F%92%E1%9E%94%E1%9E%BC%E1%9E%9A%E1%9E%96%E1%9F%92%E1%9E%9A%E1%9F%83%E1%9E%82%E1%9E%BB%E1%9E%A0%E1%9F%8D" target="_blank"><img src="https://pressocm.gov.kh/wp-content/uploads/2017/07/fn-2017-07-09-19-44-15-0.jpg" alt="រូបភាពប្រាសាទសំបូរព្រៃគុក"></a>
+                    </div>
+                    <p>ប្រាសាទសំបូរព្រៃគុក (បេតិកភណ្ឌពិភពលោក)</p>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="img-box">
+                        <a href="https://news.sabay.com.kh/article/894714" target="_blank"><img src="https://ezstatic1.ezweb.online/ezweb_2157/soem-panha/hotel/phnom-penh/b1.2.jpg" alt="រូបភាពភ្នំសន្ទុក"></a>
+                    </div>
+                    <p>ភ្នំសន្ទុក (រមណីយដ្ឋានវប្បធម៌ និងធម្មជាតិ)</p>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="img-box">
+                        <a href="https://www.kampucheathmey.com/local-news/746099" target="_blank"><img src="https://cnc.com.kh/news/laravel-filemanager/photos/26/64ccdf8fed1a8.jpg" alt="រូបភាពស្ទឹងសែន"></a>
+                </div>
+                    <p>ទិដ្ឋភាពដងស្ទឹងសែន</p>
+                </div>
+            </div>
+            
+        </div>
+        <div class="info-card">
+                    <h3>ប្រវត្តទូទៅ<span style="color: #ffff00;font-family: Khmer OS Moul Light;">(ប្រាសាទសំបូរព្រៃគុក)</span> </h3>
+                    <p>ប្រាសាទសម្បូរព្រៃគុកមានទីតាំងស្ថិតនៅភូមិសម្បូរ ឃុំសម្បូរ ស្រុកសម្បូរ ខេត្តកំពង់ធំ។ ប្រាសាទនេះស្ថិតនៅតាមបណ្តោយស្ទឹងសែន ដែលមានចម្ងាយប្រហែល ២៨គីឡូម៉ែត្រភាគឦសាននៃទីរួមខេត្តកំពង់ធំ និងមានចម្ងាយប្រហែល ១៨១គីឡូម៉ែត្រពីរាជធានីអង្គរនៃខេត្តសៀមរាប និងមានចម្ងាយប្រហែល១៧០គីឡូម៉ែត្រពីប្រាសាទព្រះវិហារនៃខេត្តព្រះវិហារ និងមានចម្ងាយប្រហែល ១៩៦គីឡូម៉ែត្រពីរាជធានីភ្នំពេញ។ ប្រាសាទសម្បូរព្រៃគុកជាប្រភេទរមណីយដ្ឋានវប្បធម៌ និងប្រវត្តិសាស្រ្ត។</p>
+                </div>
+                <div class="info-card">
+                    <h3>ប្រវត្តទូទៅ<span style="color: #ffff00;font-family: Khmer OS Moul Light;"><br>(ភ្នំសន្ទុក)</span> </h3>
+                    <p>ភ្នំសន្ទុកជា​ភ្នំ​និង​តំបន់​វប្បធម៌​ក្នុង​ខេត្ត ​កំពង់ធំ ​របស់ ​ប្រទេស​កម្ពុជា ។ ស្ថិតនៅភូមិ កកោះ ឃុំ កកោះ ស្រុកសន្ទុក គឺជាភ្នំដ៏ពិសិដ្ឋបំផុតរបស់ខេត្ត។ កំពូលភ្នំនេះត្រូវបានចូលដោយផ្លូវថ្មដែលមានរូបចម្លាក់ជាច្រើននៅខាងមុខផ្លូវ។ នៅផ្នែកខាងលើគឺជាប្រាសាទដែលមានជញ្ជាំងពណ៌ស និងមានទីសក្ការៈបូជា និងអាទិទេពជាច្រើន រួមទាំងព្រះពុទ្ធបដិមាជាច្រើនអង្គដែលធ្វើពីថ្ម [១] ប្រវែងជាង ១០ ម៉ែត្រ ។ [២] មានព្រះសង្ឃ​គង់​នៅ​ទី​នោះ។</p>
+                </div>
+                <div class="info-card">
+                    <h3>ប្រវត្តទូទៅ<span style="color: #ffff00;font-family: Khmer OS Moul Light;"><br>(ស្ទឹងសែន)</span> </h3>
+                    <p>ស្ទឹងសែន ជាស្ទឹងមួយដែល ហូរកាត់ខេត្តកំពង់ធំ មានប្រភពមកពីទីខ្ពង់រាប ។ វាផ្តល់អត្ថប្រយោជន៍ច្រើនណាស់ដល់ប្រជាជន រស់នៅតំបន់នោះ ដូចជា ផ្តល់ទឹកសម្រាប់ធ្វើកសិកម្ម ដំនាំស្រូវ ដំនាំចំការ ទាំងប្រាំងនិងវស្សា ផ្តល់ត្រីសម្រាប់បំពេញនូវតម្រូវការម្ហូបអាហារប្រចាំថ្ងៃ ជាផ្លូវគមនាគមន៍ ផ្តល់ទឹកសម្រាប់ប្រើប្រាស់ក្នុងជីវភាពប្រចាំថ្ងៃ ជាកន្លែងទេសចរណ៍ និង ផ្តល់នូវគ្រប់តម្រូវការផ្សេងៗ​ ។</p>
+                </div>
+    </div>
+    <hr>
+    <footer>
+    <div class="footer-container">
+        <div class="footer-card">
+            <img src="MyImage.jpg" alt="Kim Liheng">
+            <h3>គីម លីហេង</h3>
+            <p>និស្សិត SETEC</p>
+            <p>ក្រុម SX11</p>
+            <p>ជំនាន់ទី 24</p>
+            <p>មុខវិជ្ជា៖ Web Developer I</p>
+        </div>
+        <div class="footer-center">
+            <img src="SETEC LOGO PNG.png" alt="SETEC Logo">
+            <h2>SETEC Institute</h2>
+            <p>
+                School of Engineering and Technology
+            </p>
+            <p>
+                Project: Interactive Cambodia Province Map
+            </p>
+            <p>
+                Academic Year 2026
+            </p>
+        </div>
+        <div class="footer-card">
+            <img src="Teacher.jpg" alt="Teacher">
+            <h3>លោកគ្រូ រី វិសាន</h3>
+            <p>សាស្ត្រាចារ្យ</p>
+            <p>Web Developer I</p>
+            <p>Project Supervisor</p>
+            <p>SETEC Institute</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>
+            © 2026 Heng's Map | Developed by Kim Liheng
+        </p>
+    </div>
+</body>
+</html>
